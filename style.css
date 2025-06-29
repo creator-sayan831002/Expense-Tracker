@@ -61,6 +61,21 @@ h1 {
     box-shadow: 0 2px 12px rgba(0,0,0,0.09);
 }
 
+/* Add after line 63 */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.form-row label {
+    margin-bottom: 0;
+}
+.form-row input,
+.form-row select {
+    margin-bottom: 0;
+}
 .input-section {
     margin-bottom: 10px;
 }
@@ -166,6 +181,11 @@ tfoot td {
 }
 
 @media (max-width: 900px) {
+.form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+}
     .input-section, .income-list, .expenses-list {
         max-width: 98vw;
         padding: 10px 3vw 15px 3vw;
