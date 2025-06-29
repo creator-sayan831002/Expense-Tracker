@@ -1,3 +1,4 @@
+/* Base body styles: font, background, margin, padding */
 body {
     font-family: 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(120deg, #093d06 0%, #011530 100%);
@@ -5,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* Main heading styles */
 h1 {
     text-align: center;
     margin-top: 30px;
@@ -14,6 +16,7 @@ h1 {
     font-weight: 700;
 }
 
+/* Section for displaying total income and expenses */
 .totals-section {
     display: flex;
     justify-content: center;
@@ -21,6 +24,7 @@ h1 {
     margin: 30px 0 10px 0;
 }
 
+/* Box styles for totals (income, expense, net) */
 .total-box {
     background: #d5c0c0;
     border-radius: 12px;
@@ -35,23 +39,29 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Color for total income value */
 .income-total span:last-child {
     color: #0d7d30;
 }
 
+/* Color for total expense value */
 .expense-total span:last-child {
     color: #be2938;
 }
 
+/* Net income section alignment */
 .net-section {
     display: flex;
     justify-content: center;
     margin: 10px 0 20px 0;
 }
+
+/* Color for net income value */
 .net-total span:last-child {
     color: #007bff;
 }
 
+/* Card-like sections for forms and lists */
 .input-section, .income-list, .expenses-list {
     background: #fff;
     margin: 22px auto 0 auto;
@@ -61,7 +71,7 @@ h1 {
     box-shadow: 0 2px 12px rgba(0,0,0,0.09);
 }
 
-/* Add after line 63 */
+/* Flex row for form fields */
 .form-row {
     display: flex;
     flex-wrap: wrap;
@@ -69,17 +79,24 @@ h1 {
     gap: 10px;
     margin-bottom: 10px;
 }
+
+/* Remove bottom margin for labels in form rows */
 .form-row label {
     margin-bottom: 0;
 }
+
+/* Remove bottom margin for inputs/selects in form rows */
 .form-row input,
 .form-row select {
     margin-bottom: 0;
 }
+
+/* Margin below input sections */
 .input-section {
     margin-bottom: 10px;
 }
 
+/* Section headings */
 h2 {
     margin-top: 0;
     color: #031c36;
@@ -87,12 +104,14 @@ h2 {
     letter-spacing: 0.1px;
 }
 
+/* Label styles */
 label {
     margin-right: 8px;
     font-weight: 500;
     color: #2d3a4b;
 }
 
+/* Input and select field styles */
 input[type="number"],
 input[type="date"],
 input[type="text"],
@@ -108,6 +127,7 @@ select {
     transition: border 0.2s;
 }
 
+/* Focus state for inputs and selects */
 input[type="number"]:focus,
 input[type="date"]:focus,
 input[type="text"]:focus,
@@ -117,10 +137,12 @@ select:focus {
     background: #eaf4ff;
 }
 
+/* Narrower width for number inputs */
 input[type="number"] {
     width: 120px;
 }
 
+/* Button styles */
 button {
     padding: 8px 22px;
     border-radius: 5px;
@@ -133,10 +155,12 @@ button {
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
 
+/* Button hover effect */
 button:hover {
     background: #0056b3;
 }
 
+/* Delete button specific styles */
 button.delete-btn {
     background: #d21629;
     color: #fff;
@@ -146,10 +170,12 @@ button.delete-btn {
     margin: 0 2px;
 }
 
+/* Delete button hover effect */
 button.delete-btn:hover {
     background: #861c27;
 }
 
+/* Table styles for lists */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -160,6 +186,7 @@ table {
     box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 
+/* Table cell styles */
 th, td {
     border: 1px solid #e0e0e0;
     padding: 11px 8px;
@@ -167,6 +194,7 @@ th, td {
     font-size: 1em;
 }
 
+/* Table header styles */
 th {
     background: #f1f3f6;
     color: #333;
@@ -174,46 +202,59 @@ th {
     letter-spacing: 0.5px;
 }
 
+/* Table footer cell styles */
 tfoot td {
     font-weight: bold;
     background: #f9f9f9;
     color: #007bff;
 }
 
+/* Responsive styles for screens <= 900px */
 @media (max-width: 900px) {
-.form-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-}
+    /* Stack form rows vertically */
+    .form-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    /* Reduce padding and width for sections */
     .input-section, .income-list, .expenses-list {
         max-width: 98vw;
         padding: 10px 3vw 15px 3vw;
     }
+    /* Slightly smaller table text */
     table, th, td {
         font-size: 0.97em;
     }
+    /* Stack totals vertically */
     .totals-section {
         flex-direction: column;
         gap: 10px;
         align-items: center;
     }
+    /* Smaller total boxes */
     .total-box {
         min-width: 120px;
         padding: 14px 10vw;
     }
 }
+
+/* Responsive styles for screens <= 600px */
 @media (max-width: 600px) {
+    /* Even less padding for sections */
     .input-section, .income-list, .expenses-list {
         padding: 8px 2vw 10px 2vw;
     }
+    /* Smaller main heading */
     h1 {
         font-size: 1.3em;
     }
+    /* Smaller table cell padding and font */
     th, td {
         padding: 7px 2px;
         font-size: 0.93em;
     }
+    /* Slightly smaller form elements */
     label, input, select, button {
         font-size: 0.98em;
     }

@@ -4,34 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
     <title>Expense Tracker App</title>
 </head>
 <body>
+    <!-- Main Heading -->
     <h1 style="color:white;">Expense Tracker App</h1>
 
+    <!-- Section: Totals for Income and Expenses -->
     <div class="totals-section">
+        <!-- Total Income Box -->
         <div class="total-box income-total">
             <span>Total Income:</span>
             <span id="total-income">0</span>
         </div>
+        <!-- Total Expense Box -->
         <div class="total-box expense-total">
             <span>Total Expenses:</span>
             <span id="total-expense">0</span>
         </div>
     </div>
-        <div class="net-section">
+
+    <!-- Section: Net Income -->
+     
+    <div class="net-section">
         <div class="total-box net-total">
             <span>Net Income:</span>
             <span id="net-income">0</span>
         </div>
     </div>
+
+    <!-- Section: Add Income Form -->
+
     <div class="input-section income-section">
         <h2>Add Income</h2>
+
+        <!-- Income Date Input -->
+
         <label for="income-date-input">Date:</label>
         <input type="date" id="income-date-input">
+
+        <!-- Income Description Input -->
+
         <label for="income-desc-input">Description:</label>
         <input type="text" id="income-desc-input" placeholder="Description">
+
+        <!-- Income Category Dropdown -->
+
         <label for="income-category-select">Category:</label>
         <select id="income-category-select">
             <option value="">Select Category</option>
@@ -41,10 +61,19 @@
             <option value="Investment">Investment</option>
             <option value="Other">Other</option>
         </select>
+
+        <!-- Income Amount Input -->
+
         <label for="income-amount-input">Amount:</label>
         <input type="number" id="income-amount-input">
+
+        <!-- Add Income Button -->
+
         <button id="add-income-btn">Add Income</button>
     </div>
+
+    <!-- Section: Income List Table -->
+
     <div class="income-list">
         <h2>Income List</h2>
         <table>
@@ -57,17 +86,29 @@
                     <th>Delete</th>
                 </tr>
             </thead>
+            <!-- Table body for dynamic income rows -->
             <tbody id="income-table-body">
             </tbody>
         </table>
     </div>
 
+    <!-- Section: Add Expense Form -->
+
     <div class="input-section expense-section">
         <h2>Add Expense</h2>
+
+        <!-- Expense Date Input -->
+
         <label for="expense-date-input">Date:</label>
         <input type="date" id="expense-date-input">
+
+        <!-- Expense Description Input -->
+
         <label for="expense-desc-input">Description:</label>
         <input type="text" id="expense-desc-input" placeholder="Description">
+
+        <!-- Expense Category Dropdown -->
+
         <label for="expense-category-select">Category:</label>
         <select id="expense-category-select">
             <option value="">Select Category</option>
@@ -81,10 +122,19 @@
             <option value="Relaxing">Relaxing</option>
             <option value="Other">Other</option>
         </select>
+
+        <!-- Expense Amount Input -->
+
         <label for="expense-amount-input">Amount:</label>
         <input type="number" id="expense-amount-input">
+
+        <!-- Add Expense Button -->
+
         <button id="add-expense-btn">Add Expense</button>
     </div>
+
+    <!-- Section: Expenses List Table -->
+
     <div class="expenses-list">
         <h2>Expenses List</h2>
         <table>
@@ -97,10 +147,12 @@
                     <th>Delete</th>
                 </tr>
             </thead>
+
+            <!-- Table body for dynamic expense rows -->
+
             <tbody id="expense-table-body">
             </tbody>
         </table>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+
+    <!-- Link to external JavaScript file -->
