@@ -1,0 +1,200 @@
+body {
+    font-family: 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(120deg, #093d06 0%, #011530 100%);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #001127;
+    letter-spacing: 2px;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.totals-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0 10px 0;
+}
+
+.total-box {
+    background: #d5c0c0;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 20px 36px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 170px;
+    margin-bottom: 10px;
+}
+
+.income-total span:last-child {
+    color: #0d7d30;
+}
+
+.expense-total span:last-child {
+    color: #be2938;
+}
+
+.net-section {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 20px 0;
+}
+.net-total span:last-child {
+    color: #007bff;
+}
+
+.input-section, .income-list, .expenses-list {
+    background: #fff;
+    margin: 22px auto 0 auto;
+    padding: 22px 32px 28px 32px;
+    border-radius: 12px;
+    max-width: 750px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+}
+
+.input-section {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #031c36;
+    font-size: 1.3em;
+    letter-spacing: 0.1px;
+}
+
+label {
+    margin-right: 8px;
+    font-weight: 500;
+    color: #2d3a4b;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="text"],
+select {
+    margin: 0 10px 15px 0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #18232e;
+    font-size: 1em;
+    width: 160px;
+    box-sizing: border-box;
+    background: #cdd5da;
+    transition: border 0.2s;
+}
+
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border: 1.5px solid #007bff;
+    outline: none;
+    background: #eaf4ff;
+}
+
+input[type="number"] {
+    width: 120px;
+}
+
+button {
+    padding: 8px 22px;
+    border-radius: 5px;
+    border: none;
+    background: #082e57;
+    color: #f6efef;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button.delete-btn {
+    background: #d21629;
+    color: #fff;
+    padding: 6px 15px;
+    font-size: 0.97em;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+button.delete-btn:hover {
+    background: #861c27;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fafbfc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 11px 8px;
+    text-align: center;
+    font-size: 1em;
+}
+
+th {
+    background: #f1f3f6;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+tfoot td {
+    font-weight: bold;
+    background: #f9f9f9;
+    color: #007bff;
+}
+
+@media (max-width: 900px) {
+    .input-section, .income-list, .expenses-list {
+        max-width: 98vw;
+        padding: 10px 3vw 15px 3vw;
+    }
+    table, th, td {
+        font-size: 0.97em;
+    }
+    .totals-section {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .total-box {
+        min-width: 120px;
+        padding: 14px 10vw;
+    }
+}
+@media (max-width: 600px) {
+    .input-section, .income-list, .expenses-list {
+        padding: 8px 2vw 10px 2vw;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    th, td {
+        padding: 7px 2px;
+        font-size: 0.93em;
+    }
+    label, input, select, button {
+        font-size: 0.98em;
+    }
+}

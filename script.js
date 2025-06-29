@@ -1,0 +1,117 @@
+let incomes = [];
+let expenses = [];
+let totalIncome = 0;
+let totalExpense = 0;
+
+// Income elements
+const incomeDateInput = document.getElementById('income-date-input');
+const incomeDescInput = document.getElementById('income-desc-input');
+const incomeCategorySelect = document.getElementById('income-category-select');
+const incomeAmountInput = document.getElementById('income-amount-input');
+const addIncomeBtn = document.getElementById('add-income-btn');
+const incomesTableBody = document.getElementById('income-table-body');
+const totalIncomeCell = document.getElementById('total-income');
+
+// Expense elements
+const expenseDateInput = document.getElementById('expense-date-input');
+const expenseDescInput = document.getElementById('expense-desc-input');
+const expenseCategorySelect = document.getElementById('expense-category-select');
+const expenseAmountInput = document.getElementById('expense-amount-input');
+const addExpenseBtn = document.getElementById('add-expense-btn');
+const expensesTableBody = document.getElementById('expense-table-body');
+const netIncomeCell = document.getElementById('net-income');
+const totalExpenseCell = document.getElementById('total-expense');
+
+// Helper functions to recalculate totals
+function updateIncomeTotal() {
+    totalIncome = incomes.reduce((sum, item) => sum + item.amount, 0);
+    netIncomeCell.textContent = totalIncome - totalExpense;
+    totalIncomeCell.textContent = totalIncome;
+    updateNetIncome();
+}
+
+function updateExpenseTotal() {
+    totalExpense = expenses.reduce((sum, item) => sum + item.amount, 0);
+    totalExpenseCell.textContent = totalExpense;
+    updateNetIncome();
+}
+
+// Add Income
+addIncomeBtn.addEventListener('click', function() {
+    const date = incomeDateInput.value;
+    const desc = incomeDescInput.value.trim();
+    const category = incomeCategorySelect.value;
+    const amount = Number(incomeAmountInput.value);
+
+    if (!date || !desc || !category || isNaN(amount) || amount <= 0) {
+        alert('Please fill all income fields correctly.');
+        return;
+    }
+
+    const income = { date, desc, category, amount };
+    incomes.push(income);
+
+    const newRow = incomesTableBody.insertRow();
+    newRow.insertCell().textContent = date;
+    newRow.insertCell().textContent = desc;
+    newRow.insertCell().textContent = category;
+    newRow.insertCell().textContent = amount;
+    const deleteCell = newRow.insertCell();
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = function() {
+        incomes.splice(incomes.indexOf(income), 1);
+        incomesTableBody.removeChild(newRow);
+        updateIncomeTotal();
+    };
+    deleteCell.appendChild(deleteBtn);
+
+    updateIncomeTotal();
+
+    // Clear inputs
+    incomeDateInput.value = '';
+    incomeDescInput.value = '';
+    incomeCategorySelect.value = '';
+    incomeAmountInput.value = '';
+});
+
+// Add Expense
+addExpenseBtn.addEventListener('click', function() {
+    const date = expenseDateInput.value;
+    const desc = expenseDescInput.value.trim();
+    const category = expenseCategorySelect.value;
+    const amount = Number(expenseAmountInput.value);
+
+    if (!date || !desc || !category || isNaN(amount) || amount <= 0) {
+        alert('Please fill all expense fields correctly.');
+        return;
+    }
+
+    const expense = { date, desc, category, amount };
+    expenses.push(expense);
+
+    const newRow = expensesTableBody.insertRow();
+    newRow.insertCell().textContent = date;
+    newRow.insertCell().textContent = desc;
+    newRow.insertCell().textContent = category;
+    newRow.insertCell().textContent = amount;
+    const deleteCell = newRow.insertCell();
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = function() {
+        expenses.splice(expenses.indexOf(expense), 1);
+        expensesTableBody.removeChild(newRow);
+        updateExpenseTotal();
+    };
+    deleteCell.appendChild(deleteBtn);
+
+    updateExpenseTotal();
+
+    // Clear inputs
+    expenseDateInput.value = '';
+    expenseDescInput.value = '';
+    expenseCategorySelect.value = '';
+    expenseAmountInput.value = '';
+});
